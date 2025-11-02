@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BYTE the BEAT</title>
+    <title>Dynamic Scoreboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -269,11 +269,11 @@
     </style>
 </head>
 <body class="gradient-bg min-h-screen font-['Orbitron'] text-white overflow-x-auto">
-    <!-- Particle Effects -->
     <div class="particles" id="particles"></div>
-    <!-- Navigation Buttons -->
     <div class="nav-buttons">
         <button class="nav-btn" style="background: linear-gradient(45deg, #ff0080, #8000ff);" onclick="scrollToSection('header')">
+        </button>
+        <button class="nav-btn" style="background: linear-gradient(45deg, #00ffff, #0040ff);" onclick="scrollToSection('game-mechanics')">
         </button>
         <button class="nav-btn" style="background: linear-gradient(45deg, #00ff80, #0080ff);" onclick="scrollToSection('randomizer')">
         </button>
@@ -281,33 +281,33 @@
         </button>
     </div>
 
-    <!-- Section 1: Header/Logo -->
+
     <section id="header" class="section">
         <div class="relative z-10 container mx-auto px-4 py-8">
-            <!-- Background decorative elements -->
+
             <div class="fixed inset-0 pointer-events-none">
-                <!-- Floating music notes -->
+
                 <div class="music-note absolute top-20 right-20 text-neon-blue text-4xl">♪</div>
                 <div class="music-note absolute top-40 right-40 text-neon-pink text-3xl" style="animation-delay: 1s;">♫</div>
                 <div class="music-note absolute bottom-20 left-20 text-neon-yellow text-5xl" style="animation-delay: 2s;">♪</div>
                 
-                <!-- Spotlight effects -->
+
                 <div class="absolute top-0 left-1/4 w-32 h-32 bg-neon-pink opacity-20 rounded-full blur-3xl"></div>
                 <div class="absolute top-0 right-1/4 w-32 h-32 bg-neon-blue opacity-20 rounded-full blur-3xl"></div>
                 <div class="absolute bottom-0 left-1/2 w-40 h-40 bg-neon-yellow opacity-15 rounded-full blur-3xl"></div>
             </div>
 
-            <!-- Header Section -->
+
              <div class="text-center w-full px-4">
-                 <!-- Top Section with Group Info -->
+
                  <div class="mb-8">
                      <h1 class="text-3xl md:text-5xl lg:text-6xl font-black subtle-glow text-neon-blue leading-tight mb-3">BSIT 3-Y1-2 GROUP 1</h1>
                      <h2 class="text-xl md:text-3xl lg:text-4xl font-bold subtle-glow text-neon-pink">Presents</h2>
                  </div>
                  
-                 <!-- Main Title Section with Enhanced Layout -->
+
                  <div class="relative flex items-center justify-between mb-12 w-full">
-                     <!-- Left side microphones - Enhanced -->
+
                      <div class="flex flex-col space-y-4">
                          <div class="microphone">
                              <svg class="w-16 h-16 md:w-20 md:h-20 text-neon-blue" fill="currentColor" viewBox="0 0 24 24">
@@ -329,7 +329,7 @@
                          </div>
                      </div>
                      
-                     <!-- Center content - Enhanced -->
+
                      <div class="flex-1 mx-6">
                          <div class="mb-6">
                              <h1 class="text-6xl md:text-7xl lg:text-9xl font-black subtle-glow text-neon-yellow leading-none mb-3">BYTE</h1>
@@ -337,7 +337,7 @@
                              <h1 class="text-5xl md:text-7xl lg:text-9xl font-black subtle-glow text-neon-yellow leading-none">BEAT</h1>
                          </div>
                          
-                         <!-- Enhanced decorative elements -->
+
                          <div class="flex justify-center space-x-6 mb-4">
                              <div class="text-4xl animate-bounce" style="animation-delay: 0s;">🎵</div>
                              <div class="text-3xl animate-bounce" style="animation-delay: 0.2s;">🎶</div>
@@ -345,7 +345,7 @@
                          </div>
                      </div>
                      
-                     <!-- Right side microphones - Enhanced -->
+
                      <div class="flex flex-col space-y-4">
                          <div class="microphone" style="animation-delay: 1.5s;">
                              <svg class="w-16 h-16 md:w-18 md:h-18 text-neon-pink" fill="currentColor" viewBox="0 0 24 24">
@@ -368,7 +368,7 @@
                      </div>
                  </div>
                  
-                 <!-- Enhanced taglines section -->
+
                  <div class="space-y-4">
                      <div class="bg-gradient-to-r from-transparent via-neon-blue/20 to-transparent p-4 rounded-xl">
                          <p class="text-neon-blue text-xl md:text-3xl font-bold subtle-glow">Let's Debug the Silence—</p>
@@ -384,13 +384,63 @@
         </div>
     </section>
 
-    <!-- Section 2: Randomizer -->
+
+    <section id="game-mechanics" class="section h-screen gradient-bg flex items-center justify-center overflow-y-auto">
+        <div class="container mx-auto px-4 py-4 max-h-screen">
+            <div class="max-w-4xl mx-auto text-center h-full flex flex-col justify-center">
+                <h2 class="text-3xl md:text-5xl font-black text-neon-pink mb-8 subtle-glow">GAME MECHANICS</h2>
+                
+                <div class="bg-black/50 backdrop-blur-sm rounded-2xl p-6 border border-neon-blue/30 flex-1 overflow-y-auto">
+                    <p class="text-neon-yellow text-lg md:text-xl font-bold mb-6 subtle-glow font-sans">
+                        THE GAME WILL START WITH THREE (3) PLAYERS COMPETING PER SESSION.
+                    </p>
+                    
+                    <div class="space-y-6 text-left">
+
+                        <div class="bg-gradient-to-r from-neon-blue/20 to-transparent p-4 rounded-xl border-l-4 border-neon-blue">
+                            <h3 class="text-neon-blue text-lg md:text-xl font-black mb-3 font-sans">
+                                STEP 1: SPIN THE WHEEL (YEAR CATEGORY SELECTION - 1980s, 1990s, 2000s, 2010s, 2020s OR 2025)
+                            </h3>
+                        </div>
+                        
+
+                        <div class="bg-gradient-to-r from-neon-pink/20 to-transparent p-4 rounded-xl border-l-4 border-neon-pink">
+                            <h3 class="text-neon-pink text-lg md:text-xl font-black mb-3 font-sans">STEP 2: GAME ROUNDS</h3>
+                            
+
+                            <div class="ml-4 mb-4">
+                                <h4 class="text-neon-yellow text-base md:text-lg font-bold mb-2 font-sans">ROUND 1 - "GUESS THE SONG!"</h4>
+                                <p class="text-white text-sm md:text-base mb-2 font-sans leading-relaxed">Participants will listen to a short instrumental part of a song.</p>
+                                <p class="text-white text-sm md:text-base font-sans leading-relaxed">The first player to raise the answer paddle and correctly identify the song title earns 1 point.</p>
+                            </div>
+                            
+
+                            <div class="ml-4 mb-4">
+                                <h4 class="text-neon-yellow text-base md:text-lg font-bold mb-2 font-sans">ROUND 2 - "WHO'S THE SINGER?"</h4>
+                                <p class="text-white text-sm md:text-base mb-2 font-sans leading-relaxed">A short song clip will play.</p>
+                                <p class="text-white text-sm md:text-base font-sans leading-relaxed">The first to raise the paddle and correctly name the artist/singer earns 1 point.</p>
+                            </div>
+                            
+
+                            <div class="ml-4">
+                                <h4 class="text-neon-yellow text-base md:text-lg font-bold mb-2 font-sans">ROUND 3 - "FINISH THE LYRICS!"</h4>
+                                <p class="text-white text-sm md:text-base mb-2 font-sans leading-relaxed">When the music stops, the first player to raise the paddle will continue singing or reciting the next line of the song, similar to The Singing Bee style.</p>
+                                <p class="text-white text-sm md:text-base font-sans leading-relaxed">Points are awarded for correct lyric continuation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <section id="randomizer" class="section h-screen flex items-center justify-center gradient-bg">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-4xl md:text-6xl font-black text-neon-pink mb-16 subtle-glow">Choose Your Decade</h2>
             
             <div class="randomizer-container max-w-4xl mx-auto">
-                <!-- Decade Options Display -->
+
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mb-12">
                     <div class="decade-option bg-gradient-to-br from-neon-blue/20 to-neon-blue/10 border-2 border-neon-blue/50 rounded-xl p-6 hover:border-neon-blue transition-all duration-300">
                         <h3 class="text-2xl md:text-3xl font-bold text-neon-blue">1980s</h3>
@@ -418,14 +468,14 @@
                     </div>
                 </div>
                 
-                <!-- Randomizer Button -->
+
                 <div class="mb-8">
                     <button id="randomizeBtn" class="bg-gradient-to-r from-neon-pink to-neon-blue hover:from-neon-blue hover:to-neon-pink text-white font-black text-2xl md:text-3xl px-12 py-6 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95 transition-all duration-300 subtle-glow">
                         🎲 RANDOMIZE DECADE 🎲
                     </button>
                 </div>
                 
-                <!-- Result Display -->
+
                 <div id="randomResult" class="min-h-[100px] flex items-center justify-center">
                     <p class="text-gray-400 text-xl">Click the button to randomly select a decade!</p>
                 </div>
@@ -433,10 +483,10 @@
         </div>
     </section>
 
-    <!-- Section 3: Scoreboard -->
+
     <section id="scoreboard" class="section h-screen gradient-bg">
         <div class="relative z-10 container mx-auto px-4 py-8">
-            <!-- Controls Section -->
+
             <div class="flex flex-wrap justify-center gap-6 mb-12">
                 <button id="addPlayerBtn" class="bg-gradient-to-r from-neon-pink to-purple-600 hover:from-pink-600 hover:to-purple-700 px-8 py-4 rounded-xl font-bold text-white transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg">
                     + Add Player
@@ -449,12 +499,12 @@
                 </button>
             </div>
 
-            <!-- Scoreboard Section -->
+
             <div class="text-center mb-12">
                 <h2 class="text-4xl md:text-5xl font-black subtle-glow text-neon-yellow mb-12">SCOREBOARD</h2>
                 
                 <div id="scoreboardContainer" class="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto">
-                    <!-- Player cards will be dynamically generated here -->
+
                 </div>
             </div>
         </div>
@@ -462,5 +512,4 @@
 
     <script src="script.js"></script>
 </body>
-
 </html>

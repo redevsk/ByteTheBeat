@@ -36,13 +36,10 @@ class ScoreboardManager {
         
         card.innerHTML = `
             <div class="text-center">
-                <!-- Player Name -->
                 <h3 class="text-neon-yellow font-bold text-2xl mb-6 tracking-wide">${player.name}</h3>
                 
-                <!-- Score Display -->
                 <div class="score-display text-neon-yellow mb-8 select-none">${player.score}</div>
                 
-                <!-- Score Controls -->
                 <div class="flex justify-center space-x-4 mb-6">
                     <button class="decrease-btn bg-gradient-to-r from-neon-pink to-red-600 hover:from-pink-600 hover:to-red-700 w-16 h-16 rounded-xl font-bold text-3xl transition-all duration-300 transform hover:scale-110 active:scale-95" data-player-id="${player.id}">
                         −
@@ -52,31 +49,26 @@ class ScoreboardManager {
                     </button>
                 </div>
                 
-                <!-- Edit Name Button -->
                 <button class="edit-name-btn bg-gradient-to-r from-purple-600 to-purple-800 hover:from-purple-700 hover:to-purple-900 px-6 py-3 rounded-lg font-bold text-sm transition-all duration-300 transform hover:scale-105 active:scale-95" data-player-id="${player.id}">
                     Edit Name
                 </button>
             </div>
         `;
 
-        // Attach event listeners for this card
         this.attachCardEventListeners(card, player.id);
         
         return card;
     }
 
     attachCardEventListeners(card, playerId) {
-        // Increase score
         card.querySelector('.increase-btn').addEventListener('click', () => {
             this.updateScore(playerId, 1);
         });
 
-        // Decrease score
         card.querySelector('.decrease-btn').addEventListener('click', () => {
             this.updateScore(playerId, -1);
         });
 
-        // Edit name
         card.querySelector('.edit-name-btn').addEventListener('click', () => {
             this.editPlayerName(playerId);
         });
@@ -85,14 +77,13 @@ class ScoreboardManager {
     updateScore(playerId, change) {
         const player = this.players.find(p => p.id === playerId);
         if (player) {
-            player.score = Math.max(0, player.score + change); // Prevent negative scores
+            player.score = Math.max(0, player.score + change);
             this.renderScoreboard();
             this.animateScoreChange(playerId);
         }
     }
 
     animateScoreChange(playerId) {
-        // Add a brief animation effect when score changes
         const playerCards = document.querySelectorAll(`[data-player-id="${playerId}"]`);
         playerCards.forEach(element => {
             element.classList.add('animate-pulse');
@@ -148,7 +139,6 @@ class ScoreboardManager {
     }
 
     showNotification(message, type = 'success') {
-        // Create notification element
         const notification = document.createElement('div');
         notification.className = `fixed top-4 right-4 px-6 py-3 rounded-lg font-bold text-white z-50 transform transition-all duration-300 ${
             type === 'error' ? 'bg-red-500' : 'bg-green-500'
@@ -157,12 +147,10 @@ class ScoreboardManager {
         
         document.body.appendChild(notification);
         
-        // Animate in
         setTimeout(() => {
             notification.classList.add('translate-x-0');
         }, 100);
         
-        // Remove after 3 seconds
         setTimeout(() => {
             notification.classList.add('translate-x-full', 'opacity-0');
             setTimeout(() => {
@@ -171,7 +159,6 @@ class ScoreboardManager {
         }, 3000);
     }
 
-    // Keyboard shortcuts
     setupKeyboardShortcuts() {
         document.addEventListener('keydown', (e) => {
             if (e.ctrlKey) {
@@ -194,22 +181,18 @@ class ScoreboardManager {
     }
 }
 
-// Initialize the scoreboard when the page loads
 document.addEventListener('DOMContentLoaded', () => {
     const scoreboard = new ScoreboardManager();
     scoreboard.setupKeyboardShortcuts();
     initializeRandomizer();
     
-    // Add some visual flair with random floating elements
     setInterval(() => {
         createFloatingElement();
     }, 5000);
     
-    // Initialize particles
     createParticles();
 });
 
-// Create floating particles
 function createParticles() {
     const particlesContainer = document.getElementById('particles');
     const particleCount = 50;
@@ -218,26 +201,21 @@ function createParticles() {
         const particle = document.createElement('div');
         particle.className = 'particle';
         
-        // Random size between 2px and 8px
         const size = Math.random() * 6 + 2;
         particle.style.width = size + 'px';
         particle.style.height = size + 'px';
         
-        // Random horizontal position
         particle.style.left = Math.random() * 100 + '%';
         
-        // Random animation delay
         particle.style.animationDelay = Math.random() * 6 + 's';
         
-        // Random animation duration
-        const duration = Math.random() * 4 + 6; // 6-10 seconds
+        const duration = Math.random() * 4 + 6;
         particle.style.animationDuration = duration + 's';
         
         particlesContainer.appendChild(particle);
     }
 }
 
-// Navigation function
 function scrollToSection(sectionId) {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -245,7 +223,6 @@ function scrollToSection(sectionId) {
     }
 }
 
-// Initialize randomizer functionality
 function initializeRandomizer() {
     const randomizeBtn = document.getElementById('randomizeBtn');
     
@@ -254,7 +231,6 @@ function initializeRandomizer() {
     }
 }
 
-// Randomize decade selection
 function randomizeDecade() {
     const decades = [
         { name: '1980s', color: 'neon-blue', description: 'Retro Vibes' },
@@ -268,19 +244,15 @@ function randomizeDecade() {
     const randomBtn = document.getElementById('randomizeBtn');
     const resultDiv = document.getElementById('randomResult');
     
-    // Disable button and show loading
     randomBtn.disabled = true;
     randomBtn.innerHTML = '🎲 RANDOMIZING... 🎲';
     
-    // Show loading animation
     resultDiv.innerHTML = '<div class="text-2xl text-neon-yellow animate-pulse">🎵 Selecting your decade... 🎵</div>';
     
-    // Simulate randomization delay
     setTimeout(() => {
         const randomIndex = Math.floor(Math.random() * decades.length);
         const selectedDecade = decades[randomIndex];
         
-        // Show result
         resultDiv.innerHTML = `
             <div class="bg-gradient-to-r from-${selectedDecade.color}/20 to-${selectedDecade.color}/10 border-2 border-${selectedDecade.color} rounded-xl p-8 max-w-md mx-auto transform scale-110">
                 <div class="text-5xl md:text-6xl font-black text-${selectedDecade.color} subtle-glow mb-4">
@@ -291,17 +263,14 @@ function randomizeDecade() {
             </div>
         `;
         
-        // Re-enable button
         randomBtn.disabled = false;
         randomBtn.innerHTML = '🎲 RANDOMIZE AGAIN 🎲';
         
-        // Add celebration effect
         createConfetti();
         
     }, 2000);
 }
 
-// Create confetti effect
 function createConfetti() {
     const colors = ['#00ff80', '#ff0080', '#ffff00'];
     const confettiCount = 50;
@@ -329,7 +298,6 @@ function createConfetti() {
     }
 }
 
-// Add CSS for confetti animation
 const confettiStyle = document.createElement('style');
 confettiStyle.textContent = `
     @keyframes fall {
@@ -354,7 +322,6 @@ function createFloatingElement() {
     
     document.body.appendChild(element);
     
-    // Remove element after animation
     setTimeout(() => {
         if (element.parentNode) {
             element.parentNode.removeChild(element);
@@ -362,7 +329,6 @@ function createFloatingElement() {
     }, 8000);
 }
 
-// Add CSS for floating animation
 const style = document.createElement('style');
 style.textContent = `
     @keyframes float-up {
