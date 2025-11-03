@@ -343,3 +343,16 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Sound Effect Buttons
+document.getElementById('correctSoundBtn').addEventListener('click', function() {
+    const correctSound = document.getElementById('correctSound');
+    correctSound.currentTime = 0; // Reset to start
+    correctSound.play();
+});
+
+document.getElementById('wrongSoundBtn').addEventListener('click', function() {
+    const wrongSound = document.getElementById('wrongSound');
+    wrongSound.currentTime = 0; // Reset to start
+    wrongSound.play();
+});

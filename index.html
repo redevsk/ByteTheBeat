@@ -507,8 +507,24 @@
 
                 </div>
             </div>
+
+            <!-- Sound Control Buttons -->
+            <div class="flex flex-wrap justify-center gap-8 mt-16">
+                <button id="correctSoundBtn" class="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 px-12 py-6 rounded-xl font-black text-white text-xl transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg subtle-glow flex items-center gap-3">
+                    <span class="text-3xl">✓</span>
+                    <span>CORRECT</span>
+                </button>
+                <button id="wrongSoundBtn" class="bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 px-12 py-6 rounded-xl font-black text-white text-xl transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg subtle-glow flex items-center gap-3">
+                    <span class="text-3xl">✗</span>
+                    <span>WRONG</span>
+                </button>
+            </div>
         </div>
     </section>
+
+    <!-- Audio Elements -->
+    <audio id="correctSound" src="CORRECT.mp3" preload="auto"></audio>
+    <audio id="wrongSound" src="WRONG.mp3" preload="auto"></audio>
 
     <script src="script.js"></script>
 </body>
